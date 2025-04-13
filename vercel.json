@@ -19,7 +19,7 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "dist",
-        "buildCommand": "npm run build:wc"
+        "buildCommand": "npm run build"
       }
     },
     {
@@ -39,6 +39,20 @@
     {
       "src": "/checkout/(.*)",
       "dest": "/checkout-app/dist/$1"
+    },
+    {
+      "src": "/cartApp.js",
+      "dest": "/cart-app/dist/cartApp.js",
+      "headers": {
+        "content-type": "application/javascript"
+      }
+    },
+    {
+      "src": "/checkoutApp.js",
+      "dest": "/checkout-app/dist/checkoutApp.js",
+      "headers": {
+        "content-type": "application/javascript"
+      }
     },
     {
       "src": "/(.*)",

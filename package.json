@@ -7,6 +7,6 @@
     "build:microfrontends": "npm run build:cart && npm run build:checkout",
     "build:shell": "cd shell-app && npm install && npm run build",
     "build:cart": "cd cart-app && npm install && npm run build",
-    "build:checkout": "cd checkout-app && npm install && npm run build:wc"
+    "build:checkout": "cd checkout-app && npm install && npm run build"
   }
 } 

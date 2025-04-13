@@ -21,7 +21,7 @@ export default defineConfig({
     lib: {
       entry: 'src/main.js',
       name: 'CheckoutApp',
-      fileName: 'checkoutApp',
+      fileName: 'checkoutApp.js',
       formats: ['es']
     },
     rollupOptions: {
