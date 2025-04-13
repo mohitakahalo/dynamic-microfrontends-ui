@@ -2,7 +2,12 @@
 
 import {MicrofrontendConfigType} from '@/types'
 import {renderMicrofrontendApp} from '@/stores/microfrontendStore'
-import useAppConfig from '@/hooks/useAppConfig'
+import {useStore} from '@nanostores/react'
+import {
+  headerConfig,
+  leftNavConfig,
+  secondaryConfig
+} from '@/stores/appConfigStore'
 
 const Sidebar = ({
   config
@@ -10,7 +15,9 @@ const Sidebar = ({
   config: MicrofrontendConfigType[]
   secondaryConfig: MicrofrontendConfigType[]
 }) => {
-  const {headerConfig, leftNavConfig, secondaryConfig} = useAppConfig()
+  const headerConfigValue = useStore(headerConfig)
+  const leftNavConfigValue = useStore(leftNavConfig)
+  const secondaryConfigValue = useStore(secondaryConfig)
 
   return (
     <aside className="sidebar h-full">
@@ -21,9 +28,9 @@ const Sidebar = ({
             onClick={() =>
               renderMicrofrontendApp(
                 item?.id,
-                headerConfig,
-                leftNavConfig,
-                secondaryConfig
+                headerConfigValue,
+                leftNavConfigValue,
+                secondaryConfigValue
               )
             }
             className="p-4 border rounded-lg border-gray-200 cursor-pointer w-full"

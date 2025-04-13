@@ -7,7 +7,7 @@ export type MicrofrontendConfigType = {
 }
 
 export type AppConfigType = {
-  headerConfig: MicrofrontendConfigType[]
-  leftNavConfig: MicrofrontendConfigType[]
-  secondaryConfig: MicrofrontendConfigType[]
+  headerConfig?: MicrofrontendConfigType[]
+  leftNavConfig?: MicrofrontendConfigType[]
+  secondaryConfig?: MicrofrontendConfigType[]
 }

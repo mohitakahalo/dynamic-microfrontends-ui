@@ -2,7 +2,12 @@
 
 import {MicrofrontendConfigType} from '@/types'
 import {renderMicrofrontendApp} from '@/stores/microfrontendStore'
-import useAppConfig from '@/hooks/useAppConfig'
+import {useStore} from '@nanostores/react'
+import {
+  headerConfig,
+  leftNavConfig,
+  secondaryConfig
+} from '@/stores/appConfigStore'
 
 const Header = ({
   config
@@ -10,7 +15,9 @@ const Header = ({
   config: MicrofrontendConfigType[]
   secondaryConfig: MicrofrontendConfigType[]
 }) => {
-  const {headerConfig, leftNavConfig, secondaryConfig} = useAppConfig()
+  const headerConfigValue = useStore(headerConfig)
+  const leftNavConfigValue = useStore(leftNavConfig)
+  const secondaryConfigValue = useStore(secondaryConfig)
 
   return (
     <header className="w-full gap-8 p-5">
@@ -21,9 +28,9 @@ const Header = ({
             onClick={() =>
               renderMicrofrontendApp(
                 item?.id,
-                headerConfig,
-                leftNavConfig,
-                secondaryConfig
+                headerConfigValue,
+                leftNavConfigValue,
+                secondaryConfigValue
               )
             }
             className="p-2 border rounded-lg border-gray-800 cursor-pointer"
