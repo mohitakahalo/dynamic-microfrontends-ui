@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "shell-app/.next",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "builds": [
+    {
+      "src": "cart-app/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist",
+        "buildCommand": "npm run build"
+      }
+    },
+    {
+      "src": "checkout-app/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist",
+        "buildCommand": "npm run build:wc"
+      }
+    },
+    {
+      "src": "shell-app/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/_next/static/(.*)",
+      "dest": "/shell-app/_next/static/$1"
+    },
+    {
+      "src": "/cart/(.*)",
+      "dest": "/cart-app/dist/$1"
+    },
+    {
+      "src": "/checkout/(.*)",
+      "dest": "/checkout-app/dist/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/shell-app/$1"
+    }
+  ]
+}
