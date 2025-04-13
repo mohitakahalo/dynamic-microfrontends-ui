@@ -7,12 +7,10 @@ export const selectedMicrofrontendApp = atom<MicrofrontendConfigType | null>(
 
 export const renderMicrofrontendApp = async (
   selectedId: string,
-  headerConfig: MicrofrontendConfigType[],
-  leftNavConfig: MicrofrontendConfigType[],
-  secondaryConfig: MicrofrontendConfigType[]
+  allConfigs: MicrofrontendConfigType[]
 ) => {
   const selectedApp =
-    [...headerConfig, ...leftNavConfig, ...secondaryConfig].find(
+    allConfigs.find(
       (item: MicrofrontendConfigType) => item.id === selectedId
     ) ?? null
   console.log('selectedApp', selectedApp)

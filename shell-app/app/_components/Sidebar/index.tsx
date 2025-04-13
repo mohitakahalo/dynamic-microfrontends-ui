@@ -3,11 +3,7 @@
 import {MicrofrontendConfigType} from '@/types'
 import {renderMicrofrontendApp} from '@/stores/microfrontendStore'
 import {useStore} from '@nanostores/react'
-import {
-  headerConfig,
-  leftNavConfig,
-  secondaryConfig
-} from '@/stores/appConfigStore'
+import {allConfigs} from '@/stores/appConfigStore'
 
 const Sidebar = ({
   config
@@ -15,9 +11,7 @@ const Sidebar = ({
   config: MicrofrontendConfigType[]
   secondaryConfig: MicrofrontendConfigType[]
 }) => {
-  const headerConfigValue = useStore(headerConfig)
-  const leftNavConfigValue = useStore(leftNavConfig)
-  const secondaryConfigValue = useStore(secondaryConfig)
+  const allModulesConfig = useStore(allConfigs)
 
   return (
     <aside className="sidebar flex ml-8 font-sans">
@@ -25,14 +19,7 @@ const Sidebar = ({
         {config?.map((item: MicrofrontendConfigType) => (
           <li
             key={item?.id}
-            onClick={() =>
-              renderMicrofrontendApp(
-                item?.id,
-                headerConfigValue,
-                leftNavConfigValue,
-                secondaryConfigValue
-              )
-            }
+            onClick={() => renderMicrofrontendApp(item?.id, allModulesConfig)}
             className="p-4 border rounded-lg border-gray-200 cursor-pointer w-full"
           >
             {item.title}

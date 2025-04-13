@@ -1,26 +1,10 @@
-import {
-  headerConfig,
-  leftNavConfig,
-  secondaryConfig
-} from '@/stores/appConfigStore'
 import {selectedMicrofrontendApp} from '@/stores/microfrontendStore'
 import {useStore} from '@nanostores/react'
-import {useEffect, useMemo, useState} from 'react'
+import {useEffect, useState} from 'react'
 
 const useMicrofrontendApp = () => {
   const [isLoaded, setIsLoaded] = useState(false)
   const selectedApp = useStore(selectedMicrofrontendApp)
-  const headerConfigValue = useStore(headerConfig)
-  const leftNavConfigValue = useStore(leftNavConfig)
-  const secondaryConfigValue = useStore(secondaryConfig)
-
-  const allConfigs = useMemo(() => {
-    return [
-      ...headerConfigValue,
-      ...leftNavConfigValue,
-      ...secondaryConfigValue
-    ]
-  }, [headerConfigValue, leftNavConfigValue, secondaryConfigValue])
 
   useEffect(() => {
     const url = selectedApp?.baseUrl ?? ''
@@ -35,7 +19,7 @@ const useMicrofrontendApp = () => {
     }
   }, [selectedApp?.baseUrl])
 
-  return {isLoaded, allConfigs}
+  return {isLoaded}
 }
 
 export default useMicrofrontendApp
