@@ -14,13 +14,13 @@ const Header = ({
   const allModulesConfig = useStore(allConfigs)
 
   return (
-    <header className="w-full gap-8 p-5 bg-gray-200 font-sans flex flex-row justify-between items-center">
+    <header className="w-full gap-8 p-5 bg-purple-500 font-sans flex flex-row justify-between items-center">
       <ul className="flex flex-row justify-center items-center gap-8">
         {config?.map((item: MicrofrontendConfigType) => (
           <li
             key={item?.id}
             onClick={() => renderMicrofrontendApp(item?.id, allModulesConfig)}
-            className="p-2 border rounded-lg border-gray-800 cursor-pointer"
+            className="p-2 border rounded-lg border-white text-white cursor-pointer"
           >
             {item.title}
           </li>

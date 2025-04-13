@@ -1,10 +1,12 @@
+import {useCallback, useEffect, useState} from 'react'
+import {allConfigs} from '@/stores/appConfigStore'
 import {selectedMicrofrontendApp} from '@/stores/microfrontendStore'
 import {useStore} from '@nanostores/react'
-import {useEffect, useState} from 'react'
 
 const useMicrofrontendApp = () => {
   const [isLoaded, setIsLoaded] = useState(false)
   const selectedApp = useStore(selectedMicrofrontendApp)
+  const allModulesConfig = useStore(allConfigs)
 
   useEffect(() => {
     const url = selectedApp?.baseUrl ?? ''
@@ -18,6 +20,33 @@ const useMicrofrontendApp = () => {
       setIsLoaded(true)
     }
   }, [selectedApp?.baseUrl])
+
+  const handleOpenNestedApp = useCallback(
+    (event: CustomEvent) => {
+      const idToRender = event.detail.id
+      const configToRender = allModulesConfig.find(
+        (config) => config.id === idToRender
+      )
+      if (configToRender) {
+        selectedMicrofrontendApp.set(configToRender)
+      }
+    },
+    [allModulesConfig]
+  )
+
+  useEffect(() => {
+    document.addEventListener(
+      'openNestedApp',
+      handleOpenNestedApp as EventListener
+    )
+
+    return () => {
+      document.removeEventListener(
+        'openNestedApp',
+        handleOpenNestedApp as EventListener
+      )
+    }
+  }, [handleOpenNestedApp])
 
   return {isLoaded}
 }

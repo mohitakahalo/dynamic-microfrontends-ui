@@ -5,7 +5,11 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import reactToWebComponent from 'react-to-webcomponent'
 
-const CartWC = reactToWebComponent(App, React, ReactDOM)
+const CartWC = reactToWebComponent(App, React, ReactDOM, {
+  props: {
+    configs: 'json'
+  }
+})
 customElements.define('cart-app', CartWC)
 
 // If you want to start measuring performance in your app, pass a function
