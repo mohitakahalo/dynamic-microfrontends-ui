@@ -20,7 +20,7 @@ const Sidebar = ({
   const secondaryConfigValue = useStore(secondaryConfig)
 
   return (
-    <aside className="sidebar h-full">
+    <aside className="sidebar flex ml-8 font-sans">
       <ul className="w-full flex flex-col gap-4 justify-start items-start">
         {config?.map((item: MicrofrontendConfigType) => (
           <li

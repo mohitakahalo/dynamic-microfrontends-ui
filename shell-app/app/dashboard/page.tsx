@@ -22,19 +22,19 @@ export default function Dashboard() {
   }, [])
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen p-8 pb-20 gap-8">
+    <div className="flex flex-col items-center justify-start min-h-screen gap-8">
       <Header
         config={headerConfigValue}
         secondaryConfig={secondaryConfigValue}
       />
-      <div className="flex flex-1 flex-row justify-start items-start gap-8 w-full">
+      <div className="flex flex-1 justify-start items-stretch gap-8 w-full h-full">
         <Sidebar
           config={leftNavConfigValue}
           secondaryConfig={secondaryConfigValue}
         />
         <MicrofrontendApp />
       </div>
-      <footer className="flex items-center justify-center w-full bg-amber-50 p-5">
+      <footer className="flex items-center justify-center w-full bg-gray-100 p-5">
         Page Footer
       </footer>
     </div>

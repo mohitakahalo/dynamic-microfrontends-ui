@@ -4,10 +4,11 @@ export type MicrofrontendConfigType = {
   path: string
   active: boolean
   baseUrl?: string
+  webComponent?: string
 }
 
 export type AppConfigType = {
-  headerConfig?: MicrofrontendConfigType[]
-  leftNavConfig?: MicrofrontendConfigType[]
-  secondaryConfig?: MicrofrontendConfigType[]
+  headerConfig: MicrofrontendConfigType[]
+  leftNavConfig: MicrofrontendConfigType[]
+  secondaryConfig: MicrofrontendConfigType[]
 }
