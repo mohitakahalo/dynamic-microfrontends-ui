@@ -55,7 +55,7 @@ export const getConfig = async () => {
         path: '/cart/checkout',
         title: 'Checkout',
         active: false,
-        baseUrl: 'http://localhost:3002',
+        baseUrl: 'http://localhost:3002/checkoutApp.js',
         webComponent: 'checkout-app'
       },
       {
