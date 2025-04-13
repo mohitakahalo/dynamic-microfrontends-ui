@@ -9,4 +9,4 @@
     "build:cart": "cd cart-app && npm install && npm run build",
     "build:checkout": "cd checkout-app && npm install && npm run build"
   }
-} 
+}
