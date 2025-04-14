@@ -1,7 +1,13 @@
 # dynamic-microfrontends-ui
+
 Deployment URL: https://dynamic-microfrontends-ui.vercel.app/dashboard
 
 This is a basic setup for implementing a monorepo based micro-frontend architecture for multi-framework web apps. This is built using a flexible architecture that allows for independent development and deployment of microfrontends while maintaining a cohesive developer experience.
+
+- For demo purpose, this contains 2 built apps - Cart and Checkout.
+- Uses a app config to render the sections, the app config can be found at - https://run.mocky.io/v3/77d1579f-78d6-4e89-ad73-1863a2e7d264
+- Click on 'Cart' from sidebar to see the Cart module.
+- Click on 'Checkout' in Cart section to render the Checkout module.
 
 ## Local Setup Guide
 
@@ -30,7 +36,7 @@ cd shell-app
 npm run dev
 ```
 
-Runs on http://localhost:3000
+Served on http://localhost:3000
 
 #### Build the cart-app webcomponents
 
@@ -39,7 +45,7 @@ cd cart-app
 npm run build:wc
 ```
 
-Runs on http://localhost:3001/cartApp.js
+Served on `http://localhost:3001/cartApp.js`. Make sure to update the `baseUrl` of the cart module config to this value.
 
 #### Build the checkout-app webcomponents
 
@@ -48,11 +54,19 @@ cd checkout-app
 npm run build:wc
 ```
 
-Runs on http://localhost:3002/checkoutApp.js
+Runs on `http://localhost:3002/checkoutApp.js`. Make sure to update the `baseUrl` of the checkout module config to this value.
 
 Now you can see the dashboard in browser on http://localhost:3000
 
 ## Key components
+
+### App Configuration
+
+We have used https://designer.mocky.io/ for implementing a mock API which returns the intial configuration. The initial config can be found on this link: https://run.mocky.io/v3/77d1579f-78d6-4e89-ad73-1863a2e7d264
+
+- The initial app config is saved to localstorage if not found initially
+- The app config can be edited by clicking on `upload config` button on the dashboard header
+- Clear the localstorage if you want to restart the app from initial config.
 
 ### Orchestrator App: `shell-app` (Next.js)
 
@@ -102,11 +116,3 @@ Both microfrontends are built as web components to:
 
 - We have used custom events for communicating between Microfrontends
 - All the custom events can be passed to Web Components with payload / context and reused.
-
-### App Configuration
-
-We have used https://designer.mocky.io/ for implementing a mock API which returns the intial configuration. The initial config can be found on this link: https://run.mocky.io/v3/77d1579f-78d6-4e89-ad73-1863a2e7d264
-
-- The initial app config is saved to localstorage if not found initially
-- The app config can be edited by clicking on `upload config` button on the dashboard header
-- Clear the localstorage if you want to restart the app from initial config.
