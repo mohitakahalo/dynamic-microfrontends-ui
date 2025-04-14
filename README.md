@@ -62,9 +62,10 @@ Now you can see the dashboard in browser on http://localhost:3000
 
 ### App Configuration
 
-We have used https://designer.mocky.io/ for implementing a mock API which returns the intial configuration. The initial config can be found on this link: https://run.mocky.io/v3/77d1579f-78d6-4e89-ad73-1863a2e7d264
+We have used https://designer.mocky.io/ for implementing a mock API which returns the intial configuration. This acts as a database to fetch the initial config. It can be found on this link: https://run.mocky.io/v3/77d1579f-78d6-4e89-ad73-1863a2e7d264
 
-- The initial app config is saved to localstorage if not found initially
+- The initial app config is fetched from the above url (assume it to be fetched from a database)
+- Once the middleware API fetches the initial config, it saves to the localstorage
 - The app config can be edited by clicking on `upload config` button on the dashboard header
 - Clear the localstorage if you want to restart the app from initial config.
 
