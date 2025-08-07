@@ -5,7 +5,7 @@ Deployment URL: https://dynamic-microfrontends-ui.vercel.app/dashboard
 This is a basic setup for implementing a monorepo based micro-frontend architecture for multi-framework web apps. This is built using a flexible architecture that allows for independent development and deployment of microfrontends while maintaining a cohesive developer experience.
 
 - For demo purpose, this contains 2 built apps - Cart and Checkout.
-- Uses a app config to render the sections, the app config can be found at - https://run.mocky.io/v3/77d1579f-78d6-4e89-ad73-1863a2e7d264
+- Uses a app config to render the sections, ~~the app config can be found at - https://run.mocky.io/v3/77d1579f-78d6-4e89-ad73-1863a2e7d264~~ Emulated the API response inside the code temporarily
 - Click on 'Cart' from sidebar to see the Cart module.
 - Click on 'Checkout' in Cart section to render the Checkout module.
 
